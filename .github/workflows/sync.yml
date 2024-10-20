@@ -1,0 +1,25 @@
+# File: .github/workflows/sync_code.yml
+name: 同步别人代码
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '5 0,15 * * *'
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      
+      - name: sync_code
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/cmliu/edgetunnel" #此处填别人的仓库地址
+          source_branch: "main"
+          destination_branch: "main"
+          github_token: ${{ secrets.PAT }}
