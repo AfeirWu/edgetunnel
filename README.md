@@ -1,5 +1,5 @@
 ##使用教程
 - 1、使用本项目作为模板创建一个新项目
 - 2、修改sync.yaml文件中的源仓库地址、源分支、目标分支、定时cron参数
-- 3、配置sercets，PAT
+- 3、配置secret，PAT
 - 4、手动运行workflow
