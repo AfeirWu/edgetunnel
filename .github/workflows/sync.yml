@@ -16,7 +16,7 @@ jobs:
           persist-credentials: false
       
       - name: sync_code
-        uses: repo-sync/github-sync@v2
+        uses: repo-sync/github-sync@master
         if: env.PAT
         with:
           source_repo: "https://github.com/cmliu/edgetunnel" #此处填别人的仓库地址
